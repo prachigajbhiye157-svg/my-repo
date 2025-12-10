@@ -1,0 +1,32 @@
+.image{
+    height: 600px;
+    background-repeat: no-repeat;
+    
+    background-image: url(https://tse1.mm.bing.net/th/id/OIP.cvZchhtq6V_z2nkj-7ybUwHaE8?pid=Api&P=0&h=220) ;
+    background-image: url(buddha.jpg);
+    background-size: 100% 100%;
+}
+
+.doremon{
+    height: 500px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image:url(https://tse1.mm.bing.net/th/id/OIP.NKRxY_uazjJYN2AJFoqHKQHaEK?pid=Api&P=0&h=220);
+}
+.nobita{
+    background-position: center;
+    height: 315px;
+    background-repeat: no-repeat;
+    background-image: url(https://tse2.mm.bing.net/th/id/OIP.DGONNpZmOeaedXtKX4kVAQHaH1?pid=Api&P=0&h=220);
+}
+
+.box{
+    height: 600px;
+    background-color: crimson;
+}
+.boximg{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment:url(buddha.jpg);
+    height: 800px;
+}

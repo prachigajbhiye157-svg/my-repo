@@ -1,0 +1,55 @@
+.img{
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("https://tse1.mm.bing.net/th/id/OIP.e79l-TeN3CzGrsRGjg6KmAHaEB?pid=Api&P=0&h=220");
+
+}
+.navbar{
+    display: flex;
+    height: 200px;
+    justify-content: space-around;
+    background-color:red;
+}
+
+
+
+.service{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 300px;
+    background-color: magenta;
+    justify-content: center;
+}
+
+.service h2{
+    font-size: 40px;
+    margin-bottom: -5px;
+}
+
+.service p{
+    color: turquoise;
+}
+
+.services-cards{
+    display: flex;
+    justify-content: space-around;
+    height: 500px;
+    background-color: tomato;
+    align-items: center;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: thistle;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 50px;
+}
+
+.caed .card-img{
+    font-size: 70px;
+}

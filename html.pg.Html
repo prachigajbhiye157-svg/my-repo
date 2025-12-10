@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport"
+        content="width=device-width,intial-scale=1"
+        />
+        <title> Timetable (boxed table) </title>
+        <style>
+            :root{
+                --cell-padding: 10px;
+                --border-color: #af3232;
+                --header-bg: #cb1d57;
+                --accent: #2b6cb0;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+                display: flex;
+                justify-content:center;
+                padding: 24px;
+                background:#fafafa;
+            }
+            .Timetable{
+                border-collapse: collapse;
+                width: 92px;                           /
+                /*adjust widht: as needed */
+                max-width: 100%;
+                background: rgb(161, 165, 42);
+                box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+            }
+
+            .Timetable th,
+            .Timetable td {
+                border: 2px solid var (--border-color);
+                padding: var(--cell-padding);
+                text-align: center;
+                vertical-align: middle;
+                min-width: 110px;
+                height: 60px;
+                /* height of each box; change as required*/
+            }
+            /* left "hours"colunm style */
+            .left-col{
+                width: 11px;
+                background: #099709;
+                font-weight: 600;
+            }
+            /* top header */
+            .Timetable thead th {
+                background: var(--header-bg);
+                font-weight: 700;
+            }
+
+            /* big title row above table (optional) */
+            .title-row th {
+                border: none;
+                background: transparent;
+                font-size: 18px;
+                padding: 12px 8px;
+                text-align: center;
+            }
+
+            /* lunch row stling (centered label that spans many columns) */
+            .lunch {
+                font-weight: 700;
+                font-size: 16x;
+                background: #370c9b;
+            }
+            /* small responsive tweak: stack table as normal on very narrow screens */
+            @media (max-widght:64px) {
+                .Timetable th, .Timetable td {
+
+                }
+                
+            }
+
+        </style>
+    </head>
+<body>
+
+    <table class="Timetable" role="table" aria-label="weekly Timetable">
+        <thead>
+            <tr class="title-row">
+                <th> colspan="6">time table</th>
+
+            </tr>
+            <tr>
+                <th class="left-col"> hours</th>
+                <th>mon</th>
+                <th>tue</th>
+                <th>wed</th>
+                <th>thu</th>
+                <th>fri</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <!--first bolck of two -->
+            <tr>
+                <td class="left-col">1</td>
+                <td>science</td>
+                <td>maths</td>
+                <td>arts</td>
+                <td>history</td>
+                <td>english</td>
+            </tr>
+            <td class="left-col">2</td>
+            <td>science</td>
+            <td>maths</td>
+            <td>arts</td>
+            <td>history</td>
+            <td>english</td>
+        </tr>
+        <!--lunch row spannig the weekly columns-->
+        <tr>
+            <td class="left-col">---</td>
+            <td class="lunch" colspan="5">lunch</td>
+        </tr>
+
+        <!--second block of two rows -->
+        <tr>
+            <td class="left-col">3</td>
+            <td>science</td>
+            <td>maths</td>
+            <td>arts</td>
+            <td>project</td>
+            <td>maths</td>
+        </tr>
+        <tr>
+            <td class="left-col">4</td>
+            <td>science</td>
+            <td>maths</td>
+            <td>arts</td>
+            <td>project</td>
+            <td>maths</td>
+        </tr>
+        
+
+        </tr>
+        </tbody>
+    </table>
+
+    </body>
+    </html>

@@ -1,0 +1,22 @@
+.four{
+    font-weight: bold;
+    justify-content: center;
+    justify-items: center;
+}
+.box{
+    width: 400px;
+    max-height: 200px;
+    border: 1px solid beige;
+    background-color: rosybrown;
+    
+
+}
+.box2{
+    width: 400px;
+    max-height: 200px;
+    border: 2px;
+    background-color: lightslategray;
+}
+.box3{
+
+}

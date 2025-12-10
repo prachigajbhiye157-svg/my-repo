@@ -1,0 +1,38 @@
+.parent{
+    display: flex;
+    height: 500px;
+    background-color: aqua;
+    gap: 10px;
+
+   /* justify-content: end; */
+    justify-content: center;
+   /* justify-content: space-between;*/
+   /* justify-content: start;*/
+    align-items: center;
+    flex-direction: column;
+
+
+}
+.child{
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: chocolate;
+    
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+
+
+}
