@@ -1,0 +1,1786 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaStudio - Creative Digital Agency</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9ff;
+            color: #16162a;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            padding: 16px 0;
+        }
+
+        .navbar-brand {
+            font-size: 26px;
+            font-weight: 800;
+            color: #6755e8 !important;
+        }
+
+        .navbar-brand span {
+            color: #16162a;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: #555 !important;
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #6755e8 !important;
+        }
+
+        .nav-btn {
+            background: #6755e8;
+            color: white !important;
+            border-radius: 30px;
+            padding: 10px 22px !important;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 720px;
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            background:
+                radial-gradient(circle at 80% 20%, #ddd8ff 0%, transparent 30%),
+                radial-gradient(circle at 10% 80%, #e6e2ff 0%, transparent 30%),
+                #f8f9ff;
+        }
+
+        .hero-small {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: #eae7ff;
+            color: #6755e8;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 65px;
+            line-height: 1.1;
+            font-weight: 800;
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #6755e8;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 560px;
+            margin: 25px 0;
+        }
+
+        .hero-btn {
+            background: #6755e8;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #5141cf;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-outline {
+            padding: 14px 30px;
+            border-radius: 30px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            border-radius: 30px;
+            width: 100%;
+            height: 480px;
+            object-fit: cover;
+            box-shadow: 0 25px 60px rgba(103,85,232,0.2);
+        }
+
+
+        /* ================= STATS ================= */
+
+        .stats {
+            background: #16162a;
+            color: white;
+            padding: 55px 0;
+        }
+
+        .stat h2 {
+            font-size: 38px;
+            font-weight: 800;
+        }
+
+        .stat p {
+            color: #aaa;
+            margin: 0;
+        }
+
+
+        /* ================= COMMON ================= */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-tag {
+            color: #6755e8;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        .section-description {
+            color: #777;
+            max-width: 600px;
+            margin: 15px auto 50px;
+        }
+
+
+        /* ================= SERVICES ================= */
+
+        .service-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            border: 1px solid #eee;
+            height: 100%;
+            transition: 0.4s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.09);
+        }
+
+        .service-icon {
+            width: 65px;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #eeeaff;
+            color: #6755e8;
+            border-radius: 18px;
+            font-size: 28px;
+            margin-bottom: 25px;
+        }
+
+        .service-card h4 {
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .service-link {
+            color: #6755e8;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .about-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-list li {
+            margin: 18px 0;
+            font-weight: 500;
+        }
+
+        .about-list i {
+            color: #6755e8;
+            margin-right: 10px;
+        }
+
+
+        /* ================= PORTFOLIO ================= */
+
+        .portfolio-card {
+            position: relative;
+            overflow: hidden;
+            border-radius: 25px;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .portfolio-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            background: rgba(255,255,255,0.95);
+            padding: 20px;
+            border-radius: 18px;
+        }
+
+        .portfolio-overlay h5 {
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .portfolio-overlay p {
+            color: #777;
+            margin: 5px 0 0;
+        }
+
+
+        /* ================= PRICING ================= */
+
+        .pricing-card {
+            background: white;
+            padding: 35px;
+            border-radius: 25px;
+            border: 1px solid #eee;
+            height: 100%;
+        }
+
+        .pricing-card.featured {
+            background: #6755e8;
+            color: white;
+            transform: scale(1.04);
+            box-shadow: 0 20px 50px rgba(103,85,232,0.25);
+        }
+
+        .pricing-card.featured p,
+        .pricing-card.featured li {
+            color: #ddd;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 20px 0;
+        }
+
+        .price span {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pricing-card li {
+            margin: 15px 0;
+            color: #666;
+        }
+
+        .pricing-card li i {
+            margin-right: 8px;
+        }
+
+        .price-btn {
+            width: 100%;
+            border-radius: 30px;
+            padding: 12px;
+            font-weight: 600;
+        }
+
+
+        /* ================= TESTIMONIAL ================= */
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            height: 100%;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+        }
+
+        .stars {
+            color: #ffb400;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .user {
+            display: flex;
+            align-items: center;
+            margin-top: 25px;
+        }
+
+        .user img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .user h6 {
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .user small {
+            color: #888;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            background: #16162a;
+            color: white;
+        }
+
+        .contact-card {
+            background: white;
+            color: #16162a;
+            padding: 40px;
+            border-radius: 25px;
+        }
+
+        .form-control {
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            padding: 13px 16px;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(103,85,232,0.15);
+            border-color: #6755e8;
+        }
+
+        .contact-btn {
+            width: 100%;
+            background: #6755e8;
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #0d0d18;
+            color: white;
+            padding: 60px 0 25px;
+        }
+
+        footer h5 {
+            font-weight: 700;
+        }
+
+        footer p {
+            color: #999;
+            line-height: 1.7;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #222235;
+            color: white;
+            border-radius: 50%;
+            margin-right: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #6755e8;
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid #29293b;
+            margin-top: 40px;
+            padding-top: 20px;
+            color: #777;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 991px) {
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-image {
+                margin-top: 50px;
+                height: 400px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+        }
+
+
+        @media(max-width: 576px) {
+
+            .hero {
+                padding: 70px 0;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero-outline {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .section {
+                padding: 70px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                         NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+            Nova<span>Studio</span>
+        </a>
+
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#services">
+                        Services
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#work">
+                        Work
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#pricing">
+                        Pricing
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link nav-btn ms-lg-3" href="#contact">
+                        Let's Talk
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+                         HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="hero-small">
+                    ✨ Creative Digital Agency
+                </div>
+
+                <h1>
+                    We Build
+                    <span>Digital Experiences</span>
+                    That Matter.
+                </h1>
+
+                <p>
+                    We design beautiful websites and digital
+                    products that help brands grow, connect
+                    with customers and stand out online.
+                </p>
+
+
+                <div>
+
+                    <a href="#work"
+                       class="btn hero-btn">
+
+                        Explore Our Work
+                        <i class="bi bi-arrow-right ms-2"></i>
+
+                    </a>
+
+
+                    <a href="#contact"
+                       class="btn btn-outline-dark hero-outline">
+
+                        Contact Us
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1559028012-481c04fa702d"
+                    class="hero-image"
+                    alt="Creative Design">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         STATS
+===================================================== -->
+
+<section class="stats">
+
+    <div class="container">
+
+        <div class="row text-center g-4">
+
+            <div class="col-6 col-lg-3 stat">
+
+                <h2>120+</h2>
+
+                <p>
+                    Projects Completed
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3 stat">
+
+                <h2>85+</h2>
+
+                <p>
+                    Happy Clients
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3 stat">
+
+                <h2>5+</h2>
+
+                <p>
+                    Years Experience
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-3 stat">
+
+                <h2>15</h2>
+
+                <p>
+                    Team Members
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                       SERVICES
+===================================================== -->
+
+<section class="section" id="services">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <div class="section-tag">
+                What We Do
+            </div>
+
+            <h2 class="section-title">
+                Our Services
+            </h2>
+
+            <p class="section-description">
+                From strategy to design and development,
+                we create digital solutions that make an impact.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <h4>
+                        Web Development
+                    </h4>
+
+                    <p>
+                        Fast, responsive and modern websites
+                        built using the latest technologies.
+                    </p>
+
+                    <a href="#" class="service-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+
+                    <h4>
+                        UI/UX Design
+                    </h4>
+
+                    <p>
+                        Clean and beautiful interfaces that
+                        provide an amazing user experience.
+                    </p>
+
+                    <a href="#" class="service-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
+
+                    <h4>
+                        Mobile Design
+                    </h4>
+
+                    <p>
+                        Mobile-first experiences that look
+                        perfect on every screen size.
+                    </p>
+
+                    <a href="#" class="service-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-graph-up-arrow"></i>
+                    </div>
+
+                    <h4>
+                        Digital Marketing
+                    </h4>
+
+                    <p>
+                        Smart strategies to increase your
+                        online presence and reach.
+                    </p>
+
+                    <a href="#" class="service-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-search"></i>
+                    </div>
+
+                    <h4>
+                        SEO Optimization
+                    </h4>
+
+                    <p>
+                        Improve your search visibility and
+                        bring more visitors to your website.
+                    </p>
+
+                    <a href="#" class="service-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+
+                    <h4>
+                        Performance
+                    </h4>
+
+                    <p>
+                        Optimized digital experiences that
+                        load quickly and perform smoothly.
+                    </p>
+
+                    <a href="#" class="service-link">
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         ABOUT
+===================================================== -->
+
+<section class="section bg-white" id="about">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <img
+                    src="https://images.unsplash.com/photo-1521737711867-e3b97375f902"
+                    class="about-image"
+                    alt="Our Team">
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="section-tag">
+                    About Us
+                </div>
+
+                <h2 class="section-title">
+                    Turning Ideas Into Digital Reality
+                </h2>
+
+                <p class="text-muted mt-4">
+                    We are a creative team of designers,
+                    developers and digital strategists who
+                    love solving problems through technology.
+                </p>
+
+                <ul class="about-list mt-4">
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Creative & Modern Designs
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Mobile Responsive Websites
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Fast & Secure Development
+                    </li>
+
+                    <li>
+                        <i class="bi bi-check-circle-fill"></i>
+                        Dedicated Customer Support
+                    </li>
+
+                </ul>
+
+                <button class="btn hero-btn mt-3">
+                    Discover More
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                       PORTFOLIO
+===================================================== -->
+
+<section class="section" id="work">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <div class="section-tag">
+                Our Work
+            </div>
+
+            <h2 class="section-title">
+                Recent Projects
+            </h2>
+
+            <p class="section-description">
+                Take a look at some of the projects
+                we have created for our clients.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-6">
+
+                <div class="portfolio-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558655146-9f40138edfeb"
+                        alt="Project">
+
+                    <div class="portfolio-overlay">
+
+                        <h5>
+                            E-Commerce Platform
+                        </h5>
+
+                        <p>
+                            UI/UX • Development
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="portfolio-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
+                        alt="Project">
+
+                    <div class="portfolio-overlay">
+
+                        <h5>
+                            Business Dashboard
+                        </h5>
+
+                        <p>
+                            Web Design • Development
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="portfolio-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1558655146-d09347e92766"
+                        alt="Project">
+
+                    <div class="portfolio-overlay">
+
+                        <h5>
+                            Mobile Application
+                        </h5>
+
+                        <p>
+                            UI/UX • Mobile Design
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <div class="portfolio-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0"
+                        alt="Project">
+
+                    <div class="portfolio-overlay">
+
+                        <h5>
+                            Marketing Website
+                        </h5>
+
+                        <p>
+                            Branding • Development
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         PRICING
+===================================================== -->
+
+<section class="section bg-white" id="pricing">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <div class="section-tag">
+                Pricing
+            </div>
+
+            <h2 class="section-title">
+                Simple & Transparent
+            </h2>
+
+            <p class="section-description">
+                Choose a plan according to your project needs.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4 align-items-center">
+
+
+            <!-- Basic -->
+
+            <div class="col-md-4">
+
+                <div class="pricing-card">
+
+                    <h4>
+                        Starter
+                    </h4>
+
+                    <p class="text-muted">
+                        For small projects
+                    </p>
+
+                    <div class="price">
+                        ₹4,999
+                        <span>/project</span>
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            1 Website
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            Responsive Design
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            Basic SEO
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            7 Days Support
+                        </li>
+
+                    </ul>
+
+                    <button class="btn btn-outline-dark price-btn mt-3">
+                        Choose Plan
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Featured -->
+
+            <div class="col-md-4">
+
+                <div class="pricing-card featured">
+
+                    <span class="badge bg-light text-dark mb-3">
+                        Most Popular
+                    </span>
+
+                    <h4>
+                        Professional
+                    </h4>
+
+                    <p>
+                        For growing businesses
+                    </p>
+
+                    <div class="price">
+                        ₹9,999
+                        <span>/project</span>
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            <i class="bi bi-check-circle"></i>
+                            5 Website Pages
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle"></i>
+                            Premium UI/UX
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle"></i>
+                            SEO Optimization
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle"></i>
+                            30 Days Support
+                        </li>
+
+                    </ul>
+
+                    <button class="btn btn-light price-btn mt-3">
+                        Choose Plan
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Premium -->
+
+            <div class="col-md-4">
+
+                <div class="pricing-card">
+
+                    <h4>
+                        Enterprise
+                    </h4>
+
+                    <p class="text-muted">
+                        For large businesses
+                    </p>
+
+                    <div class="price">
+                        ₹19,999
+                        <span>/project</span>
+                    </div>
+
+                    <ul>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            Unlimited Pages
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            Custom Features
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            Advanced SEO
+                        </li>
+
+                        <li>
+                            <i class="bi bi-check-circle text-success"></i>
+                            90 Days Support
+                        </li>
+
+                    </ul>
+
+                    <button class="btn btn-outline-dark price-btn mt-3">
+                        Choose Plan
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                      TESTIMONIALS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <div class="section-tag">
+                Testimonials
+            </div>
+
+            <h2 class="section-title">
+                What Our Clients Say
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4 mt-3">
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "The team completely understood our
+                        vision and created a website that
+                        exceeded our expectations."
+                    </p>
+
+                    <div class="user">
+
+                        <img
+                            src="https://i.pravatar.cc/100?img=47"
+                            alt="User">
+
+                        <div>
+
+                            <h6>
+                                Ananya Sharma
+                            </h6>
+
+                            <small>
+                                Business Owner
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Amazing design, smooth communication
+                        and excellent support. Highly recommended
+                        for modern websites."
+                    </p>
+
+                    <div class="user">
+
+                        <img
+                            src="https://i.pravatar.cc/100?img=12"
+                            alt="User">
+
+                        <div>
+
+                            <h6>
+                                Rahul Mehta
+                            </h6>
+
+                            <small>
+                                Startup Founder
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="testimonial">
+
+                    <div class="stars">
+                        ★★★★★
+                    </div>
+
+                    <p>
+                        "Professional work from start to finish.
+                        Our new website looks fantastic and
+                        performs really well."
+                    </p>
+
+                    <div class="user">
+
+                        <img
+                            src="https://i.pravatar.cc/100?img=32"
+                            alt="User">
+
+                        <div>
+
+                            <h6>
+                                Neha Verma
+                            </h6>
+
+                            <small>
+                                Marketing Manager
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         CONTACT
+===================================================== -->
+
+<section class="section contact-section" id="contact">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+
+            <div class="col-lg-5">
+
+                <div class="section-tag">
+                    Contact Us
+                </div>
+
+                <h2 class="section-title text-white">
+                    Let's Create Something Amazing Together.
+                </h2>
+
+                <p class="text-white-50 mt-4">
+                    Have a project in mind?
+                    Tell us about it and let's start
+                    building something great.
+                </p>
+
+
+                <div class="mt-4">
+
+                    <p>
+                        <i class="bi bi-envelope me-2"></i>
+                        hello@novastudio.com
+                    </p>
+
+                    <p>
+                        <i class="bi bi-telephone me-2"></i>
+                        +91 98765 43210
+                    </p>
+
+                    <p>
+                        <i class="bi bi-geo-alt me-2"></i>
+                        Bhopal, India
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <div class="contact-card">
+
+                    <h4 class="fw-bold mb-4">
+                        Send Us A Message
+                    </h4>
+
+                    <form>
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Enter your name">
+
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    placeholder="Enter your email">
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Project subject">
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Message
+                            </label>
+
+                            <textarea
+                                class="form-control"
+                                rows="5"
+                                placeholder="Tell us about your project">
+                            </textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="contact-btn">
+
+                            Send Message
+                            <i class="bi bi-arrow-right ms-2"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+
+            <div class="col-lg-5">
+
+                <h5 class="fs-3">
+                    NovaStudio
+                </h5>
+
+                <p class="mt-3">
+                    We create beautiful digital experiences
+                    that help businesses grow and connect
+                    with their customers.
+                </p>
+
+
+                <div class="mt-4">
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+
+                    <a href="#" class="social-icon">
+                        <i class="bi bi-github"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h5>
+                    Company
+                </h5>
+
+                <p class="mt-3">
+                    About
+                </p>
+
+                <p>
+                    Services
+                </p>
+
+                <p>
+                    Careers
+                </p>
+
+                <p>
+                    Contact
+                </p>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h5>
+                    Services
+                </h5>
+
+                <p class="mt-3">
+                    Web Design
+                </p>
+
+                <p>
+                    Development
+                </p>
+
+                <p>
+                    SEO
+                </p>
+
+                <p>
+                    Marketing
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-3">
+
+                <h5>
+                    Newsletter
+                </h5>
+
+                <p class="mt-3">
+                    Subscribe to receive our latest updates.
+                </p>
+
+                <div class="input-group">
+
+                    <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Your email">
+
+                    <button class="btn btn-primary">
+                        <i class="bi bi-send"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright text-center">
+
+            © 2026 NovaStudio. All Rights Reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+</body>
+
+</html>

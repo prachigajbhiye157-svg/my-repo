@@ -1,0 +1,2358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Velora — Modern Shopping</title>
+
+    <!-- Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        :root {
+            --primary: #7c4dff;
+            --dark: #171717;
+            --cream: #faf8f5;
+            --muted: #777;
+            --border: #e9e9e9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: "DM Sans", sans-serif;
+            color: var(--dark);
+            background: #fff;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Playfair Display", serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            padding: 16px 0;
+            background: rgba(255,255,255,.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: #444 !important;
+            margin: 0 7px;
+        }
+
+        .nav-link:hover {
+            color: var(--primary) !important;
+        }
+
+        .search-box {
+            background: #f6f6f6;
+            border-radius: 30px;
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            width: 300px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            background: transparent;
+            width: 100%;
+        }
+
+        .nav-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #f5f5f5;
+            color: var(--dark);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 8px;
+            position: relative;
+        }
+
+        .nav-icon:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -4px;
+            right: -2px;
+            background: #ff4d6d;
+            color: white;
+            font-size: 10px;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 620px;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(20,20,20,.85),
+                    rgba(20,20,20,.25)
+                ),
+                url("https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=85");
+
+            background-size: cover;
+            background-position: center;
+
+            display: flex;
+            align-items: center;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-small {
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            color: #d8caff;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 7vw, 90px);
+            line-height: .95;
+            margin: 20px 0;
+        }
+
+        .hero h1 span {
+            color: #b49cff;
+            font-style: italic;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #eee;
+        }
+
+        .shop-btn {
+            background: white;
+            color: var(--dark);
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-weight: 700;
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .shop-btn:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* ================= CATEGORY ================= */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-size: 48px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+            max-width: 600px;
+        }
+
+        .category-card {
+            height: 280px;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            color: white;
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: flex-end;
+            padding: 25px;
+            background: linear-gradient(
+                transparent,
+                rgba(0,0,0,.75)
+            );
+        }
+
+        .category-overlay h3 {
+            font-size: 30px;
+            margin: 0;
+        }
+
+        .category-overlay p {
+            margin: 4px 0 0;
+            color: #ddd;
+        }
+
+        /* ================= OFFER ================= */
+
+        .offer {
+            background: var(--dark);
+            color: white;
+            border-radius: 30px;
+            padding: 55px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offer h2 {
+            font-size: 55px;
+        }
+
+        .offer span {
+            color: #b49cff;
+        }
+
+        .offer p {
+            color: #aaa;
+        }
+
+        .offer-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+        }
+
+        /* ================= PRODUCTS ================= */
+
+        .product-card {
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            overflow: hidden;
+            height: 100%;
+            background: white;
+            transition: .35s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(0,0,0,.09);
+        }
+
+        .product-image {
+            height: 300px;
+            background: #f6f6f6;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #ff4d6d;
+            color: white;
+            padding: 6px 11px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .heart {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            width: 38px;
+            height: 38px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+        }
+
+        .heart:hover {
+            color: #ff4d6d;
+        }
+
+        .product-body {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--primary);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .product-name {
+            font-size: 21px;
+            margin: 7px 0;
+        }
+
+        .rating {
+            color: #ffb400;
+            font-size: 13px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .old-price {
+            color: #aaa;
+            text-decoration: line-through;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .add-btn {
+            width: 100%;
+            border: none;
+            background: var(--dark);
+            color: white;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 700;
+            margin-top: 13px;
+            transition: .3s;
+        }
+
+        .add-btn:hover {
+            background: var(--primary);
+        }
+
+        /* ================= TRENDING ================= */
+
+        .trending {
+            background: var(--cream);
+        }
+
+        /* ================= REVIEW ================= */
+
+        .review-card {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            height: 100%;
+        }
+
+        .review-stars {
+            color: #ffb400;
+        }
+
+        .review-card p {
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        .review-user {
+            font-weight: 700;
+        }
+
+        /* ================= NEWSLETTER ================= */
+
+        .newsletter {
+            background:
+                linear-gradient(
+                    120deg,
+                    #ece6ff,
+                    #faf7ff
+                );
+            border-radius: 30px;
+            padding: 60px;
+        }
+
+        .newsletter h2 {
+            font-size: 45px;
+        }
+
+        .newsletter-form {
+            background: white;
+            border-radius: 40px;
+            padding: 7px;
+            display: flex;
+            max-width: 550px;
+            margin: 25px auto 0;
+        }
+
+        .newsletter-form input {
+            border: none;
+            outline: none;
+            padding: 12px 20px;
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            border: none;
+            background: var(--dark);
+            color: white;
+            border-radius: 30px;
+            padding: 12px 23px;
+            font-weight: 700;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #111;
+            color: #aaa;
+            padding: 70px 0 30px;
+        }
+
+        footer h4 {
+            color: white;
+            font-family: "DM Sans", sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        footer a {
+            color: #999;
+            display: block;
+            margin: 10px 0;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            color: white;
+            font-size: 30px;
+        }
+
+        .footer-logo span {
+            color: #9a7cff;
+        }
+
+        .social {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background: #222;
+            color: white;
+            margin-right: 5px;
+        }
+
+        .social:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* ================= CART SIDEBAR ================= */
+
+        .cart-item {
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+        }
+
+        .cart-item img {
+            width: 70px;
+            height: 70px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .qty-btn {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 5px;
+        }
+
+        .cart-total {
+            font-size: 23px;
+            font-weight: 700;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 991px) {
+
+            .search-box {
+                width: 100%;
+                margin: 15px 0;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+        }
+
+        @media(max-width: 576px) {
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .offer {
+                padding: 35px 25px;
+            }
+
+            .offer h2 {
+                font-size: 40px;
+            }
+
+            .newsletter {
+                padding: 35px 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                background: transparent;
+            }
+
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-form button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+                         NAVBAR
+========================================================= -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="logo" href="#">
+            Velora<span>.</span>
+        </a>
+
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#nav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div
+            class="collapse navbar-collapse"
+            id="nav">
+
+            <ul class="navbar-nav mx-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#categories">
+                        Categories
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#products">
+                        Shop
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#trending">
+                        Trending
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#reviews">
+                        Reviews
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <div class="d-flex align-items-center">
+
+                <a href="#" class="nav-icon">
+                    <i class="bi bi-person"></i>
+                </a>
+
+                <button
+                    class="nav-icon border-0"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#cartCanvas">
+
+                    <i class="bi bi-bag"></i>
+
+                    <span
+                        class="cart-count"
+                        id="cartCount">
+
+                        0
+
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================================================
+                           HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+
+                New Collection 2026
+
+            </div>
+
+            <h1>
+
+                Style that
+
+                <span>
+
+                    speaks.
+
+                </span>
+
+            </h1>
+
+            <p>
+
+                Discover thoughtfully selected fashion,
+                accessories and lifestyle essentials
+                designed to make everyday moments
+                feel a little more special.
+
+            </p>
+
+            <a
+                href="#products"
+                class="shop-btn mt-3">
+
+                Shop Collection
+
+                <i class="bi bi-arrow-right ms-2"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                        CATEGORIES
+========================================================= -->
+
+<section
+    class="section"
+    id="categories">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <div class="text-uppercase text-primary fw-bold small">
+
+                Explore
+
+            </div>
+
+            <h2 class="section-title">
+
+                Shop by <span>category</span>
+
+            </h2>
+
+            <p class="section-subtitle mx-auto">
+
+                Find something that matches your
+                style, mood and everyday needs.
+
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="category-overlay">
+
+                        <div>
+
+                            <h3>Fashion</h3>
+
+                            <p>120+ products</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="category-overlay">
+
+                        <div>
+
+                            <h3>Accessories</h3>
+
+                            <p>80+ products</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="category-card">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=800&q=80">
+
+                    <div class="category-overlay">
+
+                        <div>
+
+                            <h3>Beauty</h3>
+
+                            <p>95+ products</p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                           OFFER
+========================================================= -->
+
+<section class="container mb-5">
+
+    <div class="offer">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-8">
+
+                <small class="text-uppercase fw-bold">
+
+                    Limited Time Offer
+
+                </small>
+
+                <h2 class="mt-3">
+
+                    Up to <span>50% OFF</span>
+
+                </h2>
+
+                <p>
+
+                    Refresh your wardrobe with our
+                    most-loved styles before the offer ends.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-4 text-lg-end">
+
+                <a
+                    href="#products"
+                    class="offer-btn">
+
+                    Shop Sale
+
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                         PRODUCTS
+========================================================= -->
+
+<section
+    class="section pt-5"
+    id="products">
+
+    <div class="container">
+
+        <div class="d-flex flex-column flex-md-row
+                    justify-content-between
+                    align-items-md-end mb-5">
+
+            <div>
+
+                <div class="text-uppercase text-primary fw-bold small">
+
+                    Our Collection
+
+                </div>
+
+                <h2 class="section-title mb-0">
+
+                    Popular <span>picks</span>
+
+                </h2>
+
+            </div>
+
+
+            <div class="search-box mt-4 mt-md-0">
+
+                <i class="bi bi-search me-2"></i>
+
+                <input
+                    type="text"
+                    id="productSearch"
+                    placeholder="Search products...">
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="row g-4"
+            id="productList">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="classic beige jacket"
+                data-category="fashion">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="sale-badge">
+                            -25%
+                        </span>
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Fashion
+                        </div>
+
+                        <div class="product-name">
+                            Classic Beige Jacket
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (42)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹2,499
+                            </span>
+
+                            <span class="old-price">
+                                ₹3,299
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Classic Beige Jacket',
+                                2499,
+                                'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 2 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="minimal watch"
+                data-category="accessories">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="sale-badge">
+                            -20%
+                        </span>
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Accessories
+                        </div>
+
+                        <div class="product-name">
+                            Minimal Watch
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (35)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,899
+                            </span>
+
+                            <span class="old-price">
+                                ₹2,399
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Minimal Watch',
+                                1899,
+                                'https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 3 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="white sneakers"
+                data-category="fashion">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="sale-badge">
+                            -30%
+                        </span>
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Fashion
+                        </div>
+
+                        <div class="product-name">
+                            Everyday Sneakers
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (67)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹2,799
+                            </span>
+
+                            <span class="old-price">
+                                ₹3,999
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Everyday Sneakers',
+                                2799,
+                                'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 4 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="skincare set"
+                data-category="beauty">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="sale-badge">
+                            -15%
+                        </span>
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Beauty
+                        </div>
+
+                        <div class="product-name">
+                            Glow Skincare Set
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (29)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,499
+                            </span>
+
+                            <span class="old-price">
+                                ₹1,799
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Glow Skincare Set',
+                                1499,
+                                'https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 5 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="leather handbag"
+                data-category="accessories">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Accessories
+                        </div>
+
+                        <div class="product-name">
+                            Leather Handbag
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (51)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹2,199
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Leather Handbag',
+                                2199,
+                                'https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 6 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="summer dress"
+                data-category="fashion">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="sale-badge">
+                            -35%
+                        </span>
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Fashion
+                        </div>
+
+                        <div class="product-name">
+                            Summer Dress
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (73)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,999
+                            </span>
+
+                            <span class="old-price">
+                                ₹3,099
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Summer Dress',
+                                1999,
+                                'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 7 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="sunglasses"
+                data-category="accessories">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Accessories
+                        </div>
+
+                        <div class="product-name">
+                            Classic Sunglasses
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (38)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹999
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Classic Sunglasses',
+                                999,
+                                'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT 8 -->
+
+            <div
+                class="col-sm-6 col-lg-3 product-wrapper"
+                data-name="perfume"
+                data-category="beauty">
+
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        <span class="sale-badge">
+                            -20%
+                        </span>
+
+                        <button class="heart">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
+                        <img
+                            src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+
+                    <div class="product-body">
+
+                        <div class="product-category">
+                            Beauty
+                        </div>
+
+                        <div class="product-name">
+                            Signature Perfume
+                        </div>
+
+                        <div class="rating">
+                            ★★★★★
+                            <span class="text-muted">
+                                (44)
+                            </span>
+                        </div>
+
+                        <div class="mt-2">
+
+                            <span class="price">
+                                ₹1,799
+                            </span>
+
+                            <span class="old-price">
+                                ₹2,249
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="add-btn"
+                            onclick="addToCart(
+                                'Signature Perfume',
+                                1799,
+                                'https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=300&q=80'
+                            )">
+
+                            <i class="bi bi-bag-plus me-2"></i>
+
+                            Add to Cart
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                       TRENDING
+========================================================= -->
+
+<section
+    class="section trending"
+    id="trending">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-5">
+
+                <div class="text-uppercase text-primary fw-bold small">
+                    Trending now
+                </div>
+
+                <h2 class="section-title">
+
+                    Your next
+
+                    <span>
+                        favorite
+                    </span>
+
+                    find.
+
+                </h2>
+
+                <p class="section-subtitle">
+
+                    Curated pieces our customers
+                    are loving right now.
+
+                </p>
+
+                <a
+                    href="#products"
+                    class="btn btn-dark rounded-pill px-4 py-3 mt-3">
+
+                    Explore Collection
+
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-7 mt-5 mt-lg-0">
+
+                <div class="row g-3">
+
+                    <div class="col-6">
+
+                        <img
+                            class="img-fluid rounded-4"
+                            src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+                    <div class="col-6">
+
+                        <img
+                            class="img-fluid rounded-4"
+                            src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=80">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                         REVIEWS
+========================================================= -->
+
+<section
+    class="section"
+    id="reviews">
+
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <div class="text-uppercase text-primary fw-bold small">
+                Happy shoppers
+            </div>
+
+            <h2 class="section-title">
+
+                What people <span>say.</span>
+
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-md-4">
+
+                <div class="review-card">
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p class="mt-3">
+
+                        "The quality is amazing and the
+                        website was so easy to use.
+                        My order arrived earlier than expected!"
+
+                    </p>
+
+                    <div class="review-user">
+                        — Ananya
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="review-card">
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p class="mt-3">
+
+                        "Loved the packaging and the
+                        product quality. Definitely
+                        coming back for more."
+
+                    </p>
+
+                    <div class="review-user">
+                        — Riya
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="review-card">
+
+                    <div class="review-stars">
+                        ★★★★★
+                    </div>
+
+                    <p class="mt-3">
+
+                        "Beautiful collection, smooth
+                        shopping experience and
+                        excellent customer support."
+
+                    </p>
+
+                    <div class="review-user">
+                        — Neha
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                       NEWSLETTER
+========================================================= -->
+
+<section class="container mb-5">
+
+    <div class="newsletter text-center">
+
+        <div class="text-uppercase text-primary fw-bold small">
+            Stay in the loop
+        </div>
+
+        <h2 class="mt-2">
+
+            Get the latest <span>drops.</span>
+
+        </h2>
+
+        <p class="text-muted">
+
+            New products, special offers and
+            exclusive updates — straight to your inbox.
+
+        </p>
+
+
+        <form
+            class="newsletter-form"
+            onsubmit="subscribe(event)">
+
+            <input
+                type="email"
+                placeholder="Enter your email"
+                required>
+
+            <button type="submit">
+                Subscribe
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+                         FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-4">
+
+                <div class="footer-logo">
+                    Velora<span>.</span>
+                </div>
+
+                <p class="mt-3">
+
+                    Modern shopping for modern
+                    everyday life.
+
+                </p>
+
+
+                <div class="mt-4">
+
+                    <a href="#" class="social">
+                        <i class="bi bi-instagram"></i>
+                    </a>
+
+                    <a href="#" class="social">
+                        <i class="bi bi-facebook"></i>
+                    </a>
+
+                    <a href="#" class="social">
+                        <i class="bi bi-twitter-x"></i>
+                    </a>
+
+                    <a href="#" class="social">
+                        <i class="bi bi-pinterest"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h4>Shop</h4>
+
+                <a href="#products">New Arrivals</a>
+                <a href="#products">Best Sellers</a>
+                <a href="#products">Sale</a>
+                <a href="#categories">Categories</a>
+
+            </div>
+
+
+            <div class="col-6 col-lg-2">
+
+                <h4>Help</h4>
+
+                <a href="#">Contact</a>
+                <a href="#">Shipping</a>
+                <a href="#">Returns</a>
+                <a href="#">FAQ</a>
+
+            </div>
+
+
+            <div class="col-lg-4">
+
+                <h4>Contact</h4>
+
+                <p>
+                    <i class="bi bi-envelope me-2"></i>
+                    hello@velora.com
+                </p>
+
+                <p>
+                    <i class="bi bi-telephone me-2"></i>
+                    +91 98765 43210
+                </p>
+
+                <p>
+                    <i class="bi bi-geo-alt me-2"></i>
+                    Bhopal, Madhya Pradesh
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <hr class="border-secondary my-5">
+
+
+        <div class="text-center">
+
+            © 2026 Velora. All rights reserved.
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+                      CART OFFCANVAS
+========================================================= -->
+
+<div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="cartCanvas">
+
+    <div class="offcanvas-header">
+
+        <h5 class="offcanvas-title fw-bold">
+            Your Cart
+        </h5>
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas">
+        </button>
+
+    </div>
+
+
+    <div class="offcanvas-body">
+
+        <div id="cartItems">
+
+            <div class="text-center text-muted py-5">
+
+                <i
+                    class="bi bi-bag"
+                    style="font-size:50px;">
+                </i>
+
+                <p class="mt-3">
+                    Your cart is empty.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="p-3 border-top">
+
+        <div class="d-flex justify-content-between mb-3">
+
+            <span>
+                Total
+            </span>
+
+            <span
+                class="cart-total"
+                id="cartTotal">
+
+                ₹0
+
+            </span>
+
+        </div>
+
+
+        <button
+            class="btn btn-dark w-100 rounded-pill py-3"
+            onclick="checkout()">
+
+            Proceed to Checkout
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+
+<script>
+
+    /* ======================================================
+                         CART
+    ====================================================== */
+
+    let cart = [];
+
+
+    function addToCart(name, price, image) {
+
+        const existing =
+            cart.find(item => item.name === name);
+
+
+        if (existing) {
+
+            existing.quantity++;
+
+        } else {
+
+            cart.push({
+
+                name: name,
+
+                price: price,
+
+                image: image,
+
+                quantity: 1
+
+            });
+
+        }
+
+
+        updateCart();
+
+        showCart();
+
+    }
+
+
+
+    function updateCart() {
+
+        const cartItems =
+            document.getElementById("cartItems");
+
+        const cartCount =
+            document.getElementById("cartCount");
+
+        const cartTotal =
+            document.getElementById("cartTotal");
+
+
+        let total = 0;
+
+        let count = 0;
+
+
+        if (cart.length === 0) {
+
+            cartItems.innerHTML = `
+
+                <div class="text-center text-muted py-5">
+
+                    <i
+                        class="bi bi-bag"
+                        style="font-size:50px;">
+                    </i>
+
+                    <p class="mt-3">
+                        Your cart is empty.
+                    </p>
+
+                </div>
+
+            `;
+
+        } else {
+
+            cartItems.innerHTML = "";
+
+
+            cart.forEach((item, index) => {
+
+                total += item.price * item.quantity;
+
+                count += item.quantity;
+
+
+                cartItems.innerHTML += `
+
+                    <div class="cart-item">
+
+                        <div class="d-flex gap-3">
+
+                            <img
+                                src="${item.image}">
+
+                            <div class="flex-grow-1">
+
+                                <div class="fw-bold">
+                                    ${item.name}
+                                </div>
+
+                                <div class="text-muted">
+                                    ₹${item.price}
+                                </div>
+
+
+                                <div
+                                    class="d-flex align-items-center gap-2 mt-2">
+
+                                    <button
+                                        class="qty-btn"
+                                        onclick="changeQuantity(${index}, -1)">
+
+                                        −
+
+                                    </button>
+
+                                    <span>
+                                        ${item.quantity}
+                                    </span>
+
+                                    <button
+                                        class="qty-btn"
+                                        onclick="changeQuantity(${index}, 1)">
+
+                                        +
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <button
+                                class="btn btn-sm text-danger"
+                                onclick="removeItem(${index})">
+
+                                <i class="bi bi-trash"></i>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            });
+
+        }
+
+
+        cartCount.innerText = count;
+
+        cartTotal.innerText =
+            "₹" + total.toLocaleString("en-IN");
+
+    }
+
+
+
+    function changeQuantity(index, amount) {
+
+        cart[index].quantity += amount;
+
+
+        if (cart[index].quantity <= 0) {
+
+            cart.splice(index, 1);
+
+        }
+
+
+        updateCart();
+
+    }
+
+
+
+    function removeItem(index) {
+
+        cart.splice(index, 1);
+
+        updateCart();
+
+    }
+
+
+
+    function showCart() {
+
+        const cartCanvas =
+            new bootstrap.Offcanvas(
+                document.getElementById("cartCanvas")
+            );
+
+        cartCanvas.show();
+
+    }
+
+
+
+    function checkout() {
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty!");
+
+            return;
+
+        }
+
+
+        alert(
+            "Checkout page coming soon! 🛍️"
+        );
+
+    }
+
+
+
+    /* ======================================================
+                         SEARCH
+    ====================================================== */
+
+    document
+        .getElementById("productSearch")
+        .addEventListener("input", function() {
+
+            const search =
+                this.value.toLowerCase();
+
+
+            document
+                .querySelectorAll(".product-wrapper")
+                .forEach(function(product) {
+
+                    const name =
+                        product.dataset.name;
+
+                    if (name.includes(search)) {
+
+                        product.style.display = "";
+
+                    } else {
+
+                        product.style.display = "none";
+
+                    }
+
+                });
+
+        });
+
+
+
+    /* ======================================================
+                         HEART BUTTON
+    ====================================================== */
+
+    document
+        .querySelectorAll(".heart")
+        .forEach(function(button) {
+
+            button.addEventListener(
+                "click",
+                function() {
+
+                    const icon =
+                        this.querySelector("i");
+
+
+                    icon.classList.toggle(
+                        "bi-heart"
+                    );
+
+                    icon.classList.toggle(
+                        "bi-heart-fill"
+                    );
+
+                    this.style.color =
+                        icon.classList.contains(
+                            "bi-heart-fill"
+                        )
+                        ? "#ff4d6d"
+                        : "";
+
+                }
+            );
+
+        });
+
+
+
+    /* ======================================================
+                       NEWSLETTER
+    ====================================================== */
+
+    function subscribe(event) {
+
+        event.preventDefault();
+
+        alert(
+            "Thank you for subscribing! 💜"
+        );
+
+        event.target.reset();
+
+    }
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,890 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prachi | Developer Portfolio</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Google Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fc;
+            color: #222;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            background: #111827;
+            padding: 15px 0;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .navbar-brand span {
+            color: #7c5cff;
+        }
+
+        .nav-link {
+            color: #ddd !important;
+            margin-left: 18px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #7c5cff !important;
+        }
+
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 680px;
+            background: linear-gradient(
+                135deg,
+                #111827,
+                #1e1b4b
+            );
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-small {
+            color: #a99cff;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        .hero h1 span {
+            color: #8b7cff;
+        }
+
+        .hero p {
+            color: #cbd5e1;
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 25px 0;
+        }
+
+        .hero-btn {
+            background: #7c5cff;
+            color: white;
+            border: none;
+            padding: 13px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .hero-btn:hover {
+            background: #6650dc;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .hero-outline {
+            color: white;
+            border: 1px solid #aaa;
+            padding: 12px 28px;
+            border-radius: 30px;
+            margin-left: 10px;
+        }
+
+        .hero-outline:hover {
+            background: white;
+            color: #111827;
+        }
+
+        .profile-img {
+            width: 380px;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid rgba(255,255,255,0.1);
+            box-shadow: 0 0 60px rgba(124,92,255,0.4);
+        }
+
+
+        /* ================= SECTION ================= */
+
+        .section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            font-weight: 800;
+            font-size: 40px;
+        }
+
+        .section-title span {
+            color: #7c5cff;
+        }
+
+        .section-subtitle {
+            color: #777;
+            max-width: 600px;
+            margin: 10px auto 50px;
+        }
+
+
+        /* ================= ABOUT ================= */
+
+        .about-img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        .about-content p {
+            color: #666;
+            line-height: 1.9;
+        }
+
+        .about-info {
+            margin-top: 25px;
+        }
+
+        .about-info strong {
+            color: #333;
+        }
+
+
+        /* ================= SKILLS ================= */
+
+        .skill-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid #eee;
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .skill-icon {
+            font-size: 45px;
+            color: #7c5cff;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h5 {
+            font-weight: 700;
+        }
+
+        .skill-card p {
+            color: #777;
+            margin: 0;
+        }
+
+
+        /* ================= PROGRESS ================= */
+
+        .progress {
+            height: 10px;
+            border-radius: 20px;
+            background: #e9e9ef;
+        }
+
+        .progress-bar {
+            background: #7c5cff;
+            border-radius: 20px;
+        }
+
+
+        /* ================= PROJECTS ================= */
+
+        .project-card {
+            background: white;
+            border-radius: 22px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: 0.4s;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .project-body {
+            padding: 25px;
+        }
+
+        .project-body h4 {
+            font-weight: 700;
+        }
+
+        .project-body p {
+            color: #777;
+            line-height: 1.7;
+        }
+
+        .tech-badge {
+            background: #eeeaff;
+            color: #6752dc;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+            margin: 3px;
+        }
+
+        .project-btn {
+            color: #7c5cff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+
+        /* ================= EDUCATION ================= */
+
+        .timeline {
+            border-left: 3px solid #7c5cff;
+            padding-left: 30px;
+        }
+
+        .timeline-item {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: "";
+            width: 15px;
+            height: 15px;
+            background: #7c5cff;
+            border-radius: 50%;
+            position: absolute;
+            left: -39px;
+            top: 30px;
+        }
+
+        .timeline-item h5 {
+            font-weight: 700;
+        }
+
+        .timeline-item p {
+            color: #777;
+            margin: 5px 0;
+        }
+
+
+        /* ================= CONTACT ================= */
+
+        .contact-section {
+            background: #111827;
+            color: white;
+        }
+
+        .contact-info {
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 22px 0;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #27213f;
+            color: #9b8cff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 15px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 35px;
+            border-radius: 22px;
+            color: #222;
+        }
+
+        .form-control {
+            padding: 13px 15px;
+            border-radius: 10px;
+        }
+
+        .form-control:focus {
+            border-color: #7c5cff;
+            box-shadow: 0 0 0 3px rgba(124,92,255,0.15);
+        }
+
+        .send-btn {
+            background: #7c5cff;
+            color: white;
+            border: none;
+            padding: 13px;
+            border-radius: 10px;
+            width: 100%;
+            font-weight: 600;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #0b1120;
+            color: white;
+            padding: 30px 0;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #1f2937;
+            color: white;
+            border-radius: 50%;
+            margin: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background: #7c5cff;
+            color: white;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 991px) {
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .profile-img {
+                width: 300px;
+                height: 300px;
+                margin-top: 50px;
+            }
+
+        }
+
+        @media(max-width: 576px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-outline {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                         NAVBAR
+===================================================== -->
+
+<nav class="navbar navbar-expand-lg sticky-top">
+
+    <div class="container">
+
+        <a class="navbar-brand" href="#">
+            Prachi<span>.</span>
+        </a>
+
+
+        <button
+            class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">
+                        About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">
+                        Skills
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">
+                        Projects
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#education">
+                        Education
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+                         HERO
+===================================================== -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <div class="hero-small">
+                    👋 Hello, I'm
+                </div>
+
+                <h1>
+                    Prachi
+                    <span>Gajbhiye</span>
+                </h1>
+
+                <h3 class="mt-3">
+                    Python Full Stack Developer
+                </h3>
+
+                <p>
+                    I build modern, responsive and user-friendly
+                    web applications using Python, Django,
+                    HTML, CSS, JavaScript, React and MySQL.
+                </p>
+
+
+                <a
+                    href="#projects"
+                    class="btn hero-btn">
+
+                    View My Work
+                    <i class="bi bi-arrow-right ms-2"></i>
+
+                </a>
+
+
+                <a
+                    href="#contact"
+                    class="btn hero-outline">
+
+                    Contact Me
+
+                </a>
+
+            </div>
+
+
+            <div class="col-lg-5 text-center">
+
+                <img
+                    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330"
+                    class="profile-img"
+                    alt="Profile">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         ABOUT
+===================================================== -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-5">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
+                    class="about-img"
+                    alt="Developer">
+
+            </div>
+
+
+            <div class="col-lg-7 about-content">
+
+                <h2 class="section-title">
+                    About <span>Me</span>
+                </h2>
+
+                <p class="mt-4">
+                    I'm a passionate developer who enjoys creating
+                    clean and functional websites. I love learning
+                    new technologies and turning ideas into real
+                    working applications.
+                </p>
+
+                <p>
+                    My focus is on writing clean code, building
+                    responsive interfaces and developing practical
+                    web applications.
+                </p>
+
+
+                <div class="row about-info">
+
+                    <div class="col-md-6 mb-3">
+
+                        <strong>Name:</strong>
+                        Prachi Gajbhiye
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <strong>Role:</strong>
+                        Full Stack Developer
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <strong>Education:</strong>
+                        MBA IT
+
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+
+                        <strong>Location:</strong>
+                        Bhopal, India
+
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="#contact"
+                    class="btn hero-btn mt-3">
+
+                    Hire Me
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                         SKILLS
+===================================================== -->
+
+<section class="section bg-white" id="skills">
+
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 class="section-title">
+                My <span>Skills</span>
+            </h2>
+
+            <p class="section-subtitle">
+                Technologies and tools I use to build
+                modern web applications.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-filetype-html"></i>
+                    </div>
+
+                    <h5>HTML</h5>
+
+                    <p>90%</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-filetype-css"></i>
+                    </div>
+
+                    <h5>CSS</h5>
+
+                    <p>85%</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-filetype-js"></i>
+                    </div>
+
+                    <h5>JavaScript</h5>
+
+                    <p>80%</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-bootstrap"></i>
+                    </div>
+
+                    <h5>Bootstrap</h5>
+
+                    <p>90%</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        🐍
+                    </div>
+
+                    <h5>Python</h5>
+
+                    <p>85%</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-diagram-3"></i>
+                    </div>
+
+                    <h5>Django</h5>
+
+                    <p>85%</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        ⚛️
+                    </div>
+
+                    <h5>React</h5>
+
+                    <p>75%</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-6 col-md-4 col-lg-3">
+
+                <div class="skill-card">
+
+                    <div class="skill-icon">
+                        <i class="bi bi-database"></i>
+                    </div>
+
+                    <h5>MySQL</h5>
+
+                    <p>80%</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                     SKILL PROGRESS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-8 mx-auto">
+
+                <h3 class="text-center fw-bold mb-5">
+                    Technical Proficiency
+                </h3>
+
+
+                <p class="mb-2">
+                    Python
+                    <span class="float-end">85%</span>
+                </
+```
